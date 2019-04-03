@@ -1,0 +1,11 @@
+boards/ZCU111/pynq_sdfec/
+boards/ZCU111/bitstreams/
+
+.Xil
+vivado.jou
+vivado.log
+
+*.log
+
+*.idea
+*.ipynb_checkpoints
