@@ -39,7 +39,8 @@ The notebook should now be available in `rfsoc_sdfec/`.
 
 ## Building the wheel
 
-> NOTE: This is built on an x86 PC with Vivado, not on the board!
+> NOTE: Build this on an x86 machine that has Vivado on the path and a license for the SD-FEC IP. You can generate the required license by following [this link](https://www.xilinx.com/products/intellectual-property/sd-fec.html).
+
 
 We release pre-built wheels for every tagged release. If you want to build your
 own wheel, this can be done from a Linux PC with Python3 and Vivado 2018.3
