@@ -27,7 +27,7 @@ add_files -fileset constrs_1 -norecurse ./srcs/zcu111_constraints.xdc
 set_property strategy Performance_ExplorePostRoutePhysOpt [get_runs impl_1]
 
 # change number of threads to suit your cpu
-launch_runs impl_1 -to_step write_bitstream -jobs 16
+launch_runs impl_1 -to_step write_bitstream
 wait_on_run impl_1
 
 # get bitstream and hwh files

@@ -1,3 +1,4 @@
+SHELL := /bin/bash
 design_name := sdfec_pynq
 bitfile := bitstreams/sdfec_pynq.bit
 
