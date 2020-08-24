@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Aug 13 14:10:22 2020" VIVADOVERSION="2020.1">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Aug 24 13:18:08 2020" VIVADOVERSION="2020.1">
 
   <SYSTEMINFO ARCH="zynquplusRFSOC" DEVICE="xczu28dr" NAME="ps_example" PACKAGE="ffvg1517" SPEEDGRADE="-2L"/>
 
@@ -2042,7 +2042,7 @@
         </PORT>
         <PORT DIR="O" NAME="irq" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT" SIGNAME="axi_intc_irq">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="zynq_ultra_ps" PORT="pl_ps_irq0"/>
+            <CONNECTION INSTANCE="zynq_ultra_ps" PORT="pl_ps_irq1"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
@@ -14144,12 +14144,12 @@
             <CONNECTION INSTANCE="zynq_ultra_ps_axi_periph" PORT="S00_AXI_arqos"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="pl_ps_irq0" RIGHT="0" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT" SIGNAME="axi_intc_irq">
+        <PORT DIR="I" LEFT="0" NAME="pl_ps_irq0" RIGHT="0" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT"/>
+        <PORT DIR="I" LEFT="0" NAME="pl_ps_irq1" RIGHT="0" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT" SIGNAME="axi_intc_irq">
           <CONNECTIONS>
             <CONNECTION INSTANCE="axi_intc" PORT="irq"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="0" NAME="pl_ps_irq1" RIGHT="0" SENSITIVITY="LEVEL_HIGH" SIGIS="INTERRUPT"/>
         <PORT DIR="O" NAME="pl_resetn0" POLARITY="ACTIVE_LOW" SIGIS="rst" SIGNAME="zynq_ultra_ps_pl_resetn0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="rst_zynq_ultra_ps_99M" PORT="ext_reset_in"/>
