@@ -19,6 +19,11 @@ open_example_project -in_process -force -dir ./${proj_name}/sdfec_exdes [get_ips
 # change PS Master AXI width to 128 to conform with PYNQ requirements
 set_property -dict [list CONFIG.PSU__MAXIGP0__DATA_WIDTH {128}] [get_bd_cells zynq_ultra_ps]
 
+# enable PS IRQ1 port and rewire axi interrupt controller to it
+set_property -dict [list CONFIG.PSU__USE__IRQ1 {1}] [get_bd_cells zynq_ultra_ps]
+connect_bd_net [get_bd_pins zynq_ultra_ps/pl_ps_irq1] [get_bd_pins axi_intc/irq]
+disconnect_bd_net /axi_intc_irq [get_bd_pins zynq_ultra_ps/pl_ps_irq0]
+
 validate_bd_design
 save_bd_design
 
