@@ -19,13 +19,19 @@ including:
 
 ## Getting started
 
-This repository is only compatible with the [PYNQ image v2.4.1](https://github.com/Xilinx/PYNQ/releases) for [ZCU111](https://www.xilinx.com/products/boards-and-kits/zcu111.html).
+This repository is compatible with several [PYNQ releases](https://github.com/Xilinx/PYNQ/releases) for the [ZCU111](https://www.xilinx.com/products/boards-and-kits/zcu111.html).
 
 We supply pre-built wheels with all tagged releases. These can be installed
 directly with pip.
 
 ```sh
+# PYNQ v2.4.1, v2.5
 pip3 install https://github.com/Xilinx/SDFEC-PYNQ/releases/download/v1.0_$BOARD/rfsoc_sdfec-1.0-py3-none-any.whl
+
+# PYNQ v2.6
+pip3 install https://github.com/Xilinx/SDFEC-PYNQ/releases/download/v2.0_$BOARD/rfsoc_sdfec-2.0-py3-none-any.whl
+
+
 ```
 
 The wheel is just a self-contained archive, so we must ask the module to copy
