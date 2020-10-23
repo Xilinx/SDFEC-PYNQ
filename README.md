@@ -49,7 +49,7 @@ The notebook should now be available in `rfsoc_sdfec/`.
 
 
 We release pre-built wheels for every tagged release. If you want to build your
-own wheel, this can be done from a Linux PC with Python3 and Vivado 2018.3
+own wheel, this can be done from a Linux PC with Python3 and Vivado 2020.1
 installed. Clone this repo and use make to build the wheel:
 
 ```sh
