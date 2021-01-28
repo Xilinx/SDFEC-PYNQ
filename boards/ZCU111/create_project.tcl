@@ -1,3 +1,6 @@
+# Copyright (C) 2021 Xilinx, Inc
+# SPDX-License-Identifier: BSD-3-Clause
+
 set proj_name "sdfec_pynq"
 set exdes_name "sd_fec_gen_ex"
 set exdes_dir "${proj_name}/sdfec_exdes/${exdes_name}"

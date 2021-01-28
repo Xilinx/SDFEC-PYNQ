@@ -72,7 +72,6 @@ setup(
     install_requires=[
         'pynq>=2.4',
         'plotly>=3.8.1',
-        'plotly-express>=0.1.7',
         'tqdm>=4.31.1'
     ],
     url='https://github.com/Xilinx/SDFEC-PYNQ',
