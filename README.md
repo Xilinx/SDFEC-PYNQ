@@ -1,8 +1,8 @@
 # SDFEC-PYNQ
 
 This design offers an environment to evaluate the Soft Decision Forward Error
-Correction (SD-FEC) IPs using PYNQ and a ZCU111 board. Based on work by Andy Dow
-(Xilinx; Edinburgh), it allows us to play with a configurable data path
+Correction (SD-FEC) IPs using PYNQ and a ZCU111 or RFSoC2x2 board. Based on work by Andy Dow
+(Xilinx; Edinburgh), it allows us to explore the RFSoC SDFEC with a configurable data path
 including:
 
   1. A data source including BPSK, QPSK, QAM-16, and QAM-64 modulation schemes
@@ -19,7 +19,7 @@ including:
 
 ## Getting started
 
-This repository is compatible with several [PYNQ releases](https://github.com/Xilinx/PYNQ/releases) for the [ZCU111](https://www.xilinx.com/products/boards-and-kits/zcu111.html).
+This repository is compatible with several [PYNQ releases](https://github.com/Xilinx/PYNQ/releases) for the [ZCU111](https://www.xilinx.com/products/boards-and-kits/zcu111.html) and [RFSoC2x2](http://www.rfsoc-pynq.io/) boards.
 
 We supply pre-built wheels with all tagged releases. These can be installed
 directly with pip.
@@ -55,7 +55,10 @@ installed. Clone this repo and use make to build the wheel:
 ```sh
 git clone https://github.com/Xilinx/SDFEC-PYNQ.git
 cd SDFEC-PYNQ
+
 BOARD=ZCU111 make wheel
+# or
+BOARD=RFSoC2x2 make wheel
 ```
 
 The wheel is built in the `dist` folder.
