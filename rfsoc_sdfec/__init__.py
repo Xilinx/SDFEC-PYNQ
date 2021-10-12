@@ -34,7 +34,7 @@ import plotly.io as pio
 import os
 from typing import Tuple
 from enum import Enum
-from pynq import Overlay, MMIO
+from pynq import Overlay
 
 def install_notebooks(notebook_dir=None):
     """Copy SDFEC notebooks to the filesystem
@@ -112,13 +112,12 @@ class SdFecOverlay(Overlay):
         super().__init__(bitfile_name, **kwargs)
 
         
-    def _collect_monitor_stats(self, mon, sys_clk=300e6):
+    def _collect_monitor_stats(self, mon, k, sys_clk=300e6):
         first   = int(mon.register_map.first_V)
         last    = int(mon.register_map.last_V)
         stalled = int(mon.register_map.stalled_V)
         iters   = int(self.stats.register_map.iter_cnt_V)
         blocks  = int(self.stats.register_map.block_cnt_V)
-        k       = int(self.stats.register_map.k_V)
         return dict(
             throughput = ((blocks-1) * k) / (last - first) * sys_clk / (2**30),
             avg_iter   = iters / blocks,
@@ -193,6 +192,7 @@ class SdFecOverlay(Overlay):
             self.data_source.register_map.dec_keep_V_1 = word1
             self.data_source.register_map.dec_keep_V_2 = word2
 
+
             self.data_source.register_map.chan_symbls_V = self._get_chan_symbols(source_params['mod_type'], n)
             self.data_source.register_map.chan_rem_V = self._get_chan_rem(source_params['mod_type'], n)
 
@@ -230,10 +230,9 @@ class SdFecOverlay(Overlay):
             frame_errs     = int(self.stats.register_map.cor_blerr_V)
             raw_bit_errs   = int(self.stats.register_map.raw_berr_V)
             raw_frame_errs = int(self.stats.register_map.raw_blerr_V)
-            k              = int(self.stats.register_map.k_V)
 
-            enc_stats = self._collect_monitor_stats(self.enc_op_mon)
-            dec_stats = self._collect_monitor_stats(self.dec_op_mon)
+            enc_stats = self._collect_monitor_stats(self.enc_op_mon, k)
+            dec_stats = self._collect_monitor_stats(self.dec_op_mon, k)
             
         return dict(
             snr = channel_params['snr'],
