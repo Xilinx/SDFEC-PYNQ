@@ -68,16 +68,14 @@ copy_board_files('bitstreams')
 
 setup(
     name="rfsoc_sdfec",
-    version='2.0',
+    version='3.0',
     install_requires=[
-        'pynq>=2.4',
+        'pynq>=2.7',
         'plotly>=3.8.1',
         'tqdm>=4.31.1'
     ],
     url='https://github.com/Xilinx/SDFEC-PYNQ',
     license='BSD 3-Clause License',
-    author="Craig Ramsay",
-    author_email="cramsay@xilinx.com",
     packages=find_packages(),
     package_data={'': hw_data_files},
     description="PYNQ example of using the RFSoC's Soft Decision Forward Error Correction (SD-FEC) IP")

@@ -25,13 +25,16 @@ We supply pre-built wheels with all tagged releases. These can be installed
 directly with pip.
 
 ```sh
-# PYNQ v2.4.1, v2.5
-pip3 install https://github.com/Xilinx/SDFEC-PYNQ/releases/download/v1.0_$BOARD/rfsoc_sdfec-1.0-py3-none-any.whl
+# PYNQ v2.7
+wget https://github.com/Xilinx/SDFEC-PYNQ/releases/download/v3.0/$BOARD.rfsoc_sdfec-3.0-py3-none-any.whl -O rfsoc_sdfec-3.0-py3-none-any.whl
+python -m pip install rfsoc_sdfec-3.0-py3-none-any.whl --no-deps --no-build-isolation
+rm rfsoc_sdfec-3.0-py3-none-any.whl
 
 # PYNQ v2.6
 pip3 install https://github.com/Xilinx/SDFEC-PYNQ/releases/download/v2.0_$BOARD/rfsoc_sdfec-2.0-py3-none-any.whl
 
-
+# PYNQ v2.4.1, v2.5
+pip3 install https://github.com/Xilinx/SDFEC-PYNQ/releases/download/v1.0_$BOARD/rfsoc_sdfec-1.0-py3-none-any.whl
 ```
 
 The wheel is just a self-contained archive, so we must ask the module to copy
