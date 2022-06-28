@@ -39,7 +39,8 @@ from setuptools import find_packages, setup
 board = os.environ['BOARD']
 repo_board_folder = f'boards/{board}/'
 hw_data_files = []
-
+board_notebooks_dir = os.environ['PYNQ_JUPYTER_NOTEBOOKS']
+board_project_dir = os.path.join(board_notebooks_dir, 'rfsoc_sdfec')
 
 def check_env():
     """Check if we're running on PYNQ and if the board is supported."""
@@ -58,21 +59,27 @@ def copy_board_files(subdir):
         )
 
 
+def copy_notebooks(subdir):
+    """Copy notebooks from board directory to Jupyter"""
+    src_dir = os.path.join(repo_board_folder, subdir)
+    dst_dir = os.path.join(board_project_dir)
+    copy_tree(src_dir, dst_dir)
+    for new_file_dir, _, new_files in os.walk(dst_dir):
+        hw_data_files.extend(
+            [os.path.join("..", new_file_dir, f) for f in new_files]
+        )
+
+
 check_env()
-make_command = ["make", "-C", repo_board_folder]
-if subprocess.call(make_command) != 0:
-    sys.exit(-1)
-copy_board_files('notebooks')
+copy_notebooks('notebooks')
 copy_board_files('bitstreams')
 
 
 setup(
     name="rfsoc_sdfec",
-    version='3.0',
+    version='3.1',
     install_requires=[
         'pynq>=2.7',
-        'plotly>=3.8.1',
-        'tqdm>=4.31.1'
     ],
     url='https://github.com/Xilinx/SDFEC-PYNQ',
     license='BSD 3-Clause License',

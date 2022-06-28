@@ -30,7 +30,7 @@ add_files -fileset constrs_1 -norecurse ./srcs/zcu111_constraints.xdc
 set_property strategy Performance_ExplorePostRoutePhysOpt [get_runs impl_1]
 
 # change number of threads to suit your cpu
-launch_runs impl_1 -to_step write_bitstream
+launch_runs impl_1 -to_step write_bitstream -jobs 4
 wait_on_run impl_1
 
 # get bitstream and hwh files
@@ -39,4 +39,4 @@ if {![file exists ./bitstreams/]} {
 	}
 
 file copy -force ./${exdes_dir}/${exdes_name}.runs/impl_1/ps_example_wrapper.bit ./bitstreams/${proj_name}.bit
-file copy -force ./${exdes_dir}/${exdes_name}.srcs/sources_1/bd/ps_example/hw_handoff/ps_example.hwh ./bitstreams/${proj_name}.hwh
+file copy -force ./${exdes_dir}/${exdes_name}.gen/sources_1/bd/ps_example/hw_handoff/ps_example.hwh ./bitstreams/${proj_name}.hwh
