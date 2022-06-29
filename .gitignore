@@ -1,5 +1,9 @@
 boards/ZCU111/pynq_sdfec/
 boards/ZCU111/bitstreams/
+boards/RFSoC2x2/pynq_sdfec/
+boards/RFSoC2x2/bitstreams/
+boards/RFSoC4x2/pynq_sdfec/
+boards/RFSoC4x2/bitstreams/
 
 .Xil
 vivado.jou

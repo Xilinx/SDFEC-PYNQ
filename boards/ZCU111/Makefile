@@ -5,7 +5,7 @@ SHELL := /bin/bash
 design_name := sdfec_pynq
 bitfile := bitstreams/sdfec_pynq.bit
 
-all: $(bitfile)
+all: $(bitfile) clean
 
 $(bitfile):
 	# some bash magic to retrieve LDPC codes and get them in a format required by the demo
@@ -14,4 +14,4 @@ $(bitfile):
 	vivado -mode batch -source create_project.tcl -notrace
 
 clean:
-	rm -rf $(design_name) ./srcs/all_codes.txt ./bitstreams *.jou *.log NA
+	rm -rf $(design_name) ./srcs/all_codes.txt *.jou *.log NA
