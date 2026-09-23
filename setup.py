@@ -77,7 +77,7 @@ copy_board_files('bitstreams')
 
 setup(
     name="rfsoc_sdfec",
-    version='3.1',
+    version='3.2',
     install_requires=[
         'pynq>=2.7',
     ],

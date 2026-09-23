@@ -20,7 +20,7 @@ This repository is compatible with several [PYNQ releases](https://github.com/Xi
 We supply pre-built tarballs with all tagged releases. These can be installed directly with pip.
 
 ```sh
-pip3 install https://github.com/Xilinx/SDFEC-PYNQ/releases/download/v3.1/rfsoc_sdfec-3.1.tar.gz
+pip3 install https://github.com/Xilinx/SDFEC-PYNQ/releases/download/v3.2/rfsoc_sdfec-3.2.tar.gz
 ```
 
 The notebook should now be available in `rfsoc_sdfec`.
